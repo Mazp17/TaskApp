@@ -1,0 +1,15 @@
+
+
+#add-task {
+
+    &.show {
+        visibility: visible;
+        position: relative;
+    }
+
+    &.hidden {
+        visibility: hidden;
+        position: absolute;
+    }
+}
+

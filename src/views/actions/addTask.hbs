@@ -1,0 +1,48 @@
+<div class="add-task container" id="add-task">
+  <div class="card w-100">
+    <div class="card-body">
+      <h5 class="card-title">Añadir Tarea</h5>
+      <p class="card-text">Añade una tarea que tengas por realizar:) así tu papá podra verlas. Para llevarte a barichara
+        :D</p>
+      <form action="/add" method="POST">
+        <div class="row">
+          <div class="col-12">
+            <input name="tarea" class="form-control" type="text" placeholder="Tarea a realizar"
+              aria-label="default input example" required>
+          </div>
+          <div class="col-md-6 col-sm-12">
+            <div class="row">
+              <div class="col-12">
+                <div class="input-group my-3 ">
+                  <label class="input-group-text" for="subject">Asignatura</label>
+                  <select name="subject" class="form-select" id="subject" required>
+                    <option value="">Escoger...</option>
+                    {{#each asignaturas}}
+                    <option value="{{this}}">{{this}}</option>
+                    {{/each}}
+                  </select>
+                </div>
+              </div>
+              <div class="col-12">
+                <hr>
+                <label for="fechaPusieron">¿En que fecha te pusieron la actividad?</label>
+                <input name="fecha_pusieron_tarea" id="fechaPusieron" class="form-control" type="date"
+                  placeholder="¿Cuando te pusieron la tarea?" required>
+                <label for="fechaMaxEnviar">¿Cual es la fecha maxima para enviar la actividad?</label>
+                <input id="fechaMaxEnviar" name="fecha_max_enviar" class="form-control mt-1" type="date"
+                  placeholder="¿Cuando debes entregar la tarea?" required>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-12 mt-3">
+            <textarea name="description" class="form-control "
+              placeholder="¿Quieres añadir una descripción a la tarea?"></textarea>
+          </div>
+        </div>
+        <div class="mt-2">
+          <button type="submit" class=" btn btn-success">Añadir Tarea</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

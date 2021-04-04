@@ -1,0 +1,31 @@
+{
+  "name": "tasksapp",
+  "version": "1.0.0",
+  "description": "Tasks Application for students. keep track of performance in the college. ",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js",
+    "scss": "node-sass -w src/sass/ -o src/public/css/"
+  },
+  "keywords": [
+    "TasksAPP",
+    "KeepTrack"
+  ],
+  "author": "Miguel Zapata",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "connect-flash": "^0.1.1",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.1",
+    "express-mysql-session": "^2.1.5",
+    "express-session": "^1.17.1",
+    "handlebars-helpers": "^0.10.0",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}

@@ -1,0 +1,62 @@
+<div class="container-md my-2">
+  <div class="tasks row row-cols-1 row-cols-md-2 g-2">
+    {{#each tasks}}
+    {{#if enviado}}
+    <div class="col card-send-task">
+      {{else}}
+      {{#if (noEntregada fecha_max_enviar)}}
+      <div class="col card-info-task">
+        {{else}}
+        <div class="col card-danger-task">
+          {{/if}}
+          {{/if}}
+          <div class="card w-100 mx-auto" style="max-width: 18rem;">
+            <div class="card-header">
+              <h4 style="color: white;">
+                Entregado
+              </h4>
+            </div>
+            <div class="card-body text-success">
+              <h5 class="card-title ">
+                {{tarea}}
+              </h5>
+              <p class="card-subtitle text-muted ">
+                {{asignatura}}
+              </p>
+              <hr>
+              <div class="card-text">
+                <p class="date-send">Fecha Maxima:
+                  {{moment fecha_max_enviar format="YYYY-MM-DD"}}
+                </p>
+                <div>
+                  <p>
+                    {{descripcion}}
+                  </p>
+                </div>
+              </div>
+            </div>
+            {{#if (enviado enviado)}}
+            <div class="card-footer">
+
+              <button class="btn btn-success">
+                Completado
+              </button>
+            </div>
+
+            {{/if}}
+
+          </div>
+        </div>
+        {{/each}}
+
+
+
+
+
+        {{#if notTasks}}
+        <div class="alert alert-info mt-3" role="alert">
+          Aún no has agregado ninguna tarea. ¡Agregalas para llevar un registro! :)
+        </div>
+        {{/if}}
+      </div>
+    </div>
