@@ -1,8 +1,8 @@
 module.exports = {
     database: {
-        host: 'localhost',
-        user: 'root',
-        passowrd: '',
-        database: 'taskapp'
+        host: 'db4free.net',
+        user: 'migueldb',
+        passowrd: '12345678',
+        database: 'taskappsm'
     }
 };
