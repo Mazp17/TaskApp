@@ -13,21 +13,34 @@
           <div class="card w-100 mx-auto" style="max-width: 18rem;">
             <div class="card-header">
               <h4 style="color: white;">
+                {{#if enviado}}
                 Entregado
+                  {{else}}
+                    {{#if (noEntregada fecha_max_enviar)}}
+                      Por enviar
+                      {{else}}
+                      No entregado
+                    {{/if}}
+                {{/if}}
               </h4>
             </div>
-            <div class="card-body text-success">
-              <h5 class="card-title ">
+            <div class="card-body ">
+              <h5 class="card-title">
                 {{tarea}}
               </h5>
               <p class="card-subtitle text-muted ">
-                {{asignatura}}
+                {{subject}}
               </p>
               <hr>
               <div class="card-text">
+                <p>
+                  Fecha en que te asiganaron la tarea:
+                  {{moment fecha_pusieron_tarea format="YYYY-MM-DD"}}
+                </p>
                 <p class="date-send">Fecha Maxima:
                   {{moment fecha_max_enviar format="YYYY-MM-DD"}}
                 </p>
+
                 <div>
                   <p>
                     {{descripcion}}
@@ -48,10 +61,6 @@
           </div>
         </div>
         {{/each}}
-
-
-
-
 
         {{#if notTasks}}
         <div class="alert alert-info mt-3" role="alert">
