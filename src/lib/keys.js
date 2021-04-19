@@ -1,8 +1,9 @@
 module.exports = {
     database: {
-        host: 'db4free.net',
-        user: 'migueldb',
-        passowrd: '12345678',
-        database: 'taskappsm'
+        host: '23.229.220.67',
+        port:'3306',
+        user: 'task_appusr',
+        password: 'TASK-app2021%%',
+        database: 'nordestic_task_app'
     }
 };
