@@ -4,6 +4,7 @@ const express = require("express");
 const exphbs = require("express-handlebars");
 const flash = require("connect-flash");
 const handlebars = require("handlebars");
+const passport = require('passport');
 
 const helpers = require("handlebars-helpers")();
 
@@ -18,6 +19,8 @@ const port = 3000;
 
 const app = express();
 
+//auth
+const { isAuthenticated } = require('./lib/authentication'); 
 
 //functions
 function DateNow(date) {
@@ -47,6 +50,7 @@ handlebars.registerHelper("enviado", (enviado) => {
     return 1;
   };
 });
+
 
 //setting
 
@@ -86,7 +90,7 @@ app.use((req, res, next) => {
 });
 
 //Routes
-app.get("/", async (req, res) => {
+app.get("/", isAuthenticated, async (req, res) => {
   /* res.json(asignaturas); */
   const tasks = await pool.query("SELECT * FROM task");
   if (tasks == 0) {
@@ -95,9 +99,11 @@ app.get("/", async (req, res) => {
     notTasks = 0;
   };
   res.render("index", { tasks , notTasks});
+
 });
 
 app.use(require("./routes/tasks"));
+app.use(require('./routes/login'));
 
 //static files declarations
 app.use(express.static(path.join(__dirname, "public")));

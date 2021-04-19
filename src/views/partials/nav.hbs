@@ -1,35 +1,67 @@
-<nav class="navbar navbar-dark navbar-expand-lg bg-dark mb-2">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark p-2">
   <div class="container-fluid">
-    <a class="navbar-brand mx-2" href="/">
+    <a class="navbar-brand" href="#">
       <i class="bi bi-archive"></i>
-      Tasks App</a>
+      Tasks App
+    </a>
+    {{#if user}}
+     {{!-- SEARCH FORM --}}
+    <form class="d-flex ms-md-auto me-3">
+      <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+      <button class="btn btn-outline-success" type="submit">Buscar</button>
+    </form>
 
-  <div class="collapse navbar-collapse me-auto" id="navbarToggleExternalContent">
-    <span><i style="color: white;" class="bi bi-person-circle"></i>
-    asdasdas</span>
-  </div>
-    <div class="col-auto ">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false"
-        aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    {{!-- COLLAPSE NAVBAR --}}
+    <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse ms-auto" id="navbarSupportedContent">
+      <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+
+        {{!-- ADD ITEM --}}
+        <li class="nav-item me-3 me-md-0  mt-md-2">
+          <div class="d-grid gap-2 ">
+            <a href="/add" class="btn btn-outline-light">Añadir</a>
+
+          </div>
+        </li>
+
+        {{!-- DROPDOWN ITEMS --}}
+        <li class="nav-item dropdown my-auto">
+          <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <i class="bi bi-person-circle">
+              {{#if name}}
+              {{name}}
+              {{else}}
+              Your Name
+              {{/if}}
+            </i>
+
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Your Profile</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="#">
+                <i style="color: white;" class="bi bi-box-arrow-left"></i>
+                Logout</a></li>
+          </ul>
+        </li>
+      </ul>
     </div>
+
+    {{else}}
+      {{#if login}}
+      <p style="color: white;">Iniciar Sesion</p>
+      
+      {{/if}}
+      {{#if signup}}
+      <p style="color: white;">Registrese</p>
+        
+      {{/if}}
+    {{/if}}
   </div>
-{{!-- 
-  <div class="collapse" id="navbarToggleExternalContent">
-    <div class="row mx-auto">
-      <div class="col-auto mx-auto">
-        <form class="d-flex mx-2">
-          <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
-          <button class="btn btn-success" type="submit">Buscar</button>
-        </form>
-      </div>
-      <div class="col-auto">
-        <a type="button" class="btn btn-primary" href="/add">añadir</a>
-      </div>
-    </div>
-  </div> --}}
-
-
 </nav>
