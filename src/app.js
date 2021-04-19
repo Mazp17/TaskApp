@@ -14,7 +14,7 @@ const pool = require("./database");
 
 const { database } = require("./lib/keys");
 
-const port = 3000;
+const port = 80;
 
 const app = express();
 
