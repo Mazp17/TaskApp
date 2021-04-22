@@ -1,0 +1,17 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - heroku
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+        with:
+          heroku_api_key: 898a319a-e9b2-49ac-8420-9e442f76d349
+          heroku_app_name: "tasksappm" #Must be unique in Heroku
+          heroku_email: "zpmaepp@gmail.com"
